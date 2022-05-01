@@ -6,7 +6,8 @@
   <!-- <ComputedWatch /> -->
   <!-- <dynamicCss /> -->
   <!-- <dynamicStyle /> -->
-  <conditionTest />
+  <!-- <conditionTest /> -->
+  <listRender />
 </div>
 </template>
 
@@ -17,7 +18,8 @@
 // import ComputedWatch from '@/vueBasic/ComputedWatch.vue'
 // import dynamicCss from '@/vueBasic/dynamicCss.vue'
 // import dynamicStyle from '@/vueBasic/dynamicStyle.vue'
-import conditionTest from '@/vueBasic/conditionTest.vue'
+// import conditionTest from '@/vueBasic/conditionTest.vue'
+import listRender from '@/vueBasic/listRender.vue'
 
 export default {
   name: 'App',
@@ -28,7 +30,8 @@ export default {
     // ComputedWatch,
     // dynamicCss 
       // dynamicStyle,
-      conditionTest
+      // conditionTest,
+      listRender
   }
  
 }

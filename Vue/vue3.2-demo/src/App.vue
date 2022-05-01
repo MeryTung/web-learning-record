@@ -7,7 +7,8 @@
   <!-- <dynamicCss /> -->
   <!-- <dynamicStyle /> -->
   <!-- <conditionTest /> -->
-  <listRender />
+  <!-- <listRender /> -->
+  <eventHandle />
 </div>
 </template>
 
@@ -19,7 +20,8 @@
 // import dynamicCss from '@/vueBasic/dynamicCss.vue'
 // import dynamicStyle from '@/vueBasic/dynamicStyle.vue'
 // import conditionTest from '@/vueBasic/conditionTest.vue'
-import listRender from '@/vueBasic/listRender.vue'
+// import listRender from '@/vueBasic/listRender.vue'
+import eventHandle from '@/vueBasic/eventHandle.vue'
 
 export default {
   name: 'App',
@@ -31,7 +33,8 @@ export default {
     // dynamicCss 
       // dynamicStyle,
       // conditionTest,
-      listRender
+      // listRender,
+      eventHandle
   }
  
 }

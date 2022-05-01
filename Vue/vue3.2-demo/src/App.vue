@@ -5,7 +5,8 @@
   <!-- <TreeShaking /> -->
   <!-- <ComputedWatch /> -->
   <!-- <dynamicCss /> -->
-  <dynamicStyle />
+  <!-- <dynamicStyle /> -->
+  <conditionTest />
 </div>
 </template>
 
@@ -15,7 +16,8 @@
 // import TreeShaking from  '@/vueBasic/TreeShaking.vue'
 // import ComputedWatch from '@/vueBasic/ComputedWatch.vue'
 // import dynamicCss from '@/vueBasic/dynamicCss.vue'
-import dynamicStyle from '@/vueBasic/dynamicStyle.vue'
+// import dynamicStyle from '@/vueBasic/dynamicStyle.vue'
+import conditionTest from '@/vueBasic/conditionTest.vue'
 
 export default {
   name: 'App',
@@ -25,7 +27,8 @@ export default {
     // TreeShaking
     // ComputedWatch,
     // dynamicCss 
-      dynamicStyle
+      // dynamicStyle,
+      conditionTest
   }
  
 }

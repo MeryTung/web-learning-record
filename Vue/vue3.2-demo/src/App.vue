@@ -4,8 +4,8 @@
   <DataProperty /> -->
   <!-- <TreeShaking /> -->
   <!-- <ComputedWatch /> -->
-  <dynamicCssStyle />
-  
+  <!-- <dynamicCss /> -->
+  <dynamicStyle />
 </div>
 </template>
 
@@ -14,7 +14,8 @@
 // import DataProperty from '@/vueBasic/DataProperty.vue';
 // import TreeShaking from  '@/vueBasic/TreeShaking.vue'
 // import ComputedWatch from '@/vueBasic/ComputedWatch.vue'
-import dynamicCssStyle from '@/vueBasic/dynamicCssStyle.vue'
+// import dynamicCss from '@/vueBasic/dynamicCss.vue'
+import dynamicStyle from '@/vueBasic/dynamicStyle.vue'
 
 export default {
   name: 'App',
@@ -23,7 +24,8 @@ export default {
     // DataProperty,
     // TreeShaking
     // ComputedWatch,
-    dynamicCssStyle 
+    // dynamicCss 
+      dynamicStyle
   }
  
 }

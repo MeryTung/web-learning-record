@@ -20,7 +20,9 @@
   <!-- <div :style="{ fontSize: postFontSize + 'em' }">
   <blogPost v-for="post in posts" :key="post.id" :title="post.title" @enlarge-text="postFontSize +=$event"/>
   </div> -->
-  <blogPost  :title="songName"  @changeTitle="handlerTitle"/>
+  <!-- <blogPost  :title="songName"  @changeTitle="handlerTitle"/> -->
+  <!-----组件上使用v-model------->
+  <componentModel  :model-value="songName"  @update:model-value="songName=$event"/> 
 </div>
 </template>
 
@@ -38,7 +40,8 @@
 // import multipleSelected from '@/vueBasic/multipleSelected.vue'
 // import valueBindings from '@/vueBasic/valueBindings.vue'
 // import useingComponent from '@/vueBasic/useingComponent.vue'
-import blogPost from '@/vueBasic/blogPost.vue'
+// import blogPost from '@/vueBasic/blogPost.vue'
+import componentModel from '@/vueBasic/componentModel.vue'
 
 
 
@@ -58,7 +61,8 @@ export default {
       // multipleSelected,
       // valueBindings,
       // useingComponent,
-      blogPost
+      // blogPost,
+      componentModel
   },
   data(){
     return {

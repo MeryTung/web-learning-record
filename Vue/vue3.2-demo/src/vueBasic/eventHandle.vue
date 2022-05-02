@@ -5,7 +5,7 @@
        <!----这里eventBox事件点击了红色框内才会被执行，直接点击button是不会被执行的---->
        <!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
         <!-- 即事件不是从内部元素触发的 -->
-       <!-- <div class="eventBox"  @scroll.prevent="evenBox"> -->
+       <div class="eventBox"  @scroll.prevent="evenBox">
        <!----j监听事件------->
         <!-- <button @click="counter+=1">Add 1</button>
         <p>The button above has been clicked {{ counter }} times.</p> -->
@@ -23,16 +23,16 @@
         <!-- <input type="checkbox" @click.stop.prevent="doPrevent" /> -->
         <!-- <button class="btn" @click="doThat">click</button> -->
           <!-- <button class="btn" @click="doSelf($event)">click</button> -->
-          <!-- <li v-for="item in items" :key="item.id" class="itemList">
+          <li v-for="item in items" :key="item.id" class="itemList">
               {{item.username}}
-          </li> -->
-   <!-- </div> -->
+          </li>
+  
    <div class="keyup">
        <p>{{username}}</p>
        <input @keyup.enter="submit"/>
        <input type="text" @keyup.ctrl.enter="say">
    </div>
-   
+    </div>
 </div>
 </template>
 

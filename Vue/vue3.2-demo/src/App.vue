@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="mainbox">
   <!-- <IndexTest />
   <DataProperty /> -->
   <!-- <TreeShaking /> -->
@@ -8,7 +8,10 @@
   <!-- <dynamicStyle /> -->
   <!-- <conditionTest /> -->
   <!-- <listRender /> -->
-  <eventHandle />
+  <!-- <eventHandle /> -->
+  <!-- <formBasic /> -->
+  <!-- <multipleSelected /> -->
+  <valueBindings />
 </div>
 </template>
 
@@ -21,7 +24,12 @@
 // import dynamicStyle from '@/vueBasic/dynamicStyle.vue'
 // import conditionTest from '@/vueBasic/conditionTest.vue'
 // import listRender from '@/vueBasic/listRender.vue'
-import eventHandle from '@/vueBasic/eventHandle.vue'
+// import eventHandle from '@/vueBasic/eventHandle.vue'
+// import formBasic from '@/vueBasic/formBasic.vue'
+// import multipleSelected from '@/vueBasic/multipleSelected.vue'
+import valueBindings from '@/vueBasic/valueBindings.vue'
+
+
 
 export default {
   name: 'App',
@@ -34,7 +42,10 @@ export default {
       // dynamicStyle,
       // conditionTest,
       // listRender,
-      eventHandle
+      // eventHandle,
+      // formBasic
+      // multipleSelected,
+      valueBindings
   }
  
 }

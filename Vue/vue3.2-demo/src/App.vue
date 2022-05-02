@@ -13,9 +13,14 @@
   <!-- <multipleSelected /> -->
   <!-- <valueBindings /> -->
   <!----组件的复用---->
+  <!-- <useingComponent />
   <useingComponent />
-  <useingComponent />
-  <useingComponent />
+  <useingComponent /> -->
+  <!-- <blogPost  :title="songName"  :msg="blogTitle"/> -->
+  <!-- <div :style="{ fontSize: postFontSize + 'em' }">
+  <blogPost v-for="post in posts" :key="post.id" :title="post.title" @enlarge-text="postFontSize +=$event"/>
+  </div> -->
+  <blogPost  :title="songName"  @changeTitle="handlerTitle"/>
 </div>
 </template>
 
@@ -32,7 +37,8 @@
 // import formBasic from '@/vueBasic/formBasic.vue'
 // import multipleSelected from '@/vueBasic/multipleSelected.vue'
 // import valueBindings from '@/vueBasic/valueBindings.vue'
-import useingComponent from '@/vueBasic/useingComponent.vue'
+// import useingComponent from '@/vueBasic/useingComponent.vue'
+import blogPost from '@/vueBasic/blogPost.vue'
 
 
 
@@ -51,7 +57,25 @@ export default {
       // formBasic
       // multipleSelected,
       // valueBindings,
-      useingComponent
+      // useingComponent,
+      blogPost
+  },
+  data(){
+    return {
+      songName:'说走就走',
+      blogTitle:'什么鬼阿',
+       posts: [
+        { id: 1, title: 'My journey with Vue' },
+        { id: 2, title: 'Blogging with Vue' },
+        { id: 3, title: 'Why Vue is so fun' }
+      ],
+      postFontSize:1
+    }
+  },
+  methods: {
+    handlerTitle(val){
+      this.songName = val
+    }
   }
  
 }

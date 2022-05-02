@@ -22,7 +22,10 @@
   </div> -->
   <!-- <blogPost  :title="songName"  @changeTitle="handlerTitle"/> -->
   <!-----组件上使用v-model------->
-  <componentModel  :model-value="songName"  @update:model-value="songName=$event"/> 
+  <!-- <componentModel  :model-value="songName"  @update:model-value="songName=$event"/>  -->
+  <slotDistribution>
+    张靓颖上海开唱深V大秀性感，张杰空降现场飙唱《燕归巢》，两位的高音可以说让人听了非常的满足了~
+  </slotDistribution>
 </div>
 </template>
 
@@ -41,7 +44,8 @@
 // import valueBindings from '@/vueBasic/valueBindings.vue'
 // import useingComponent from '@/vueBasic/useingComponent.vue'
 // import blogPost from '@/vueBasic/blogPost.vue'
-import componentModel from '@/vueBasic/componentModel.vue'
+// import componentModel from '@/vueBasic/componentModel.vue'
+import slotDistribution from '@/vueBasic/slotDistribution.vue'
 
 
 
@@ -62,7 +66,9 @@ export default {
       // valueBindings,
       // useingComponent,
       // blogPost,
-      componentModel
+      // componentModel,
+      slotDistribution
+
   },
   data(){
     return {

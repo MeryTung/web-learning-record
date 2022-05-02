@@ -23,9 +23,22 @@
   <!-- <blogPost  :title="songName"  @changeTitle="handlerTitle"/> -->
   <!-----组件上使用v-model------->
   <!-- <componentModel  :model-value="songName"  @update:model-value="songName=$event"/>  -->
-  <slotDistribution>
+  <!-- <slotDistribution>
     张靓颖上海开唱深V大秀性感，张杰空降现场飙唱《燕归巢》，两位的高音可以说让人听了非常的满足了~
-  </slotDistribution>
+  </slotDistribution> -->
+   <div class="dynimaicBox">
+        <button
+     v-for="tab in tabs"
+     v-bind:key="tab"
+     v-bind:class="['tab-button', { active: currentTab === tab }]"
+     v-on:click="currentTab = tab"
+   >
+    {{ tab }}
+  </button>
+  <!----动态组件不能放到儿子组件内调用----->
+   <component v-bind:is="currentTabComponent" class="tab"></component>
+     <!-- <component :is="currentTabComponent" /> -->
+    </div>
 </div>
 </template>
 
@@ -45,7 +58,11 @@
 // import useingComponent from '@/vueBasic/useingComponent.vue'
 // import blogPost from '@/vueBasic/blogPost.vue'
 // import componentModel from '@/vueBasic/componentModel.vue'
-import slotDistribution from '@/vueBasic/slotDistribution.vue'
+// import slotDistribution from '@/vueBasic/slotDistribution.vue'
+import dynimaiComponent from '@/vueBasic/dynimaiComponent.vue'
+import TabArchive from '@/vueBasic/tabArchive.vue'
+import TabHome from '@/vueBasic/tabHome.vue'
+import TabPosts from '@/vueBasic/tabPosts.vue'
 
 
 
@@ -67,7 +84,11 @@ export default {
       // useingComponent,
       // blogPost,
       // componentModel,
-      slotDistribution
+      // slotDistribution,
+       dynimaiComponent,
+       TabArchive,
+        TabHome,
+        TabPosts
 
   },
   data(){
@@ -79,14 +100,21 @@ export default {
         { id: 2, title: 'Blogging with Vue' },
         { id: 3, title: 'Why Vue is so fun' }
       ],
-      postFontSize:1
+      postFontSize:1, 
+      currentTab:'Home',
+      tabs: ['Home','Posts','Archive']
     }
   },
   methods: {
     handlerTitle(val){
       this.songName = val
     }
-  }
+  },
+   computed: {
+        currentTabComponent(){
+            return 'tab-' + this.currentTab.toLowerCase()
+    }
+    }
  
 }
 </script>

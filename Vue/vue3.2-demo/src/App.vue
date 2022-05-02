@@ -11,7 +11,11 @@
   <!-- <eventHandle /> -->
   <!-- <formBasic /> -->
   <!-- <multipleSelected /> -->
-  <valueBindings />
+  <!-- <valueBindings /> -->
+  <!----组件的复用---->
+  <useingComponent />
+  <useingComponent />
+  <useingComponent />
 </div>
 </template>
 
@@ -27,7 +31,8 @@
 // import eventHandle from '@/vueBasic/eventHandle.vue'
 // import formBasic from '@/vueBasic/formBasic.vue'
 // import multipleSelected from '@/vueBasic/multipleSelected.vue'
-import valueBindings from '@/vueBasic/valueBindings.vue'
+// import valueBindings from '@/vueBasic/valueBindings.vue'
+import useingComponent from '@/vueBasic/useingComponent.vue'
 
 
 
@@ -45,7 +50,8 @@ export default {
       // eventHandle,
       // formBasic
       // multipleSelected,
-      valueBindings
+      // valueBindings,
+      useingComponent
   }
  
 }

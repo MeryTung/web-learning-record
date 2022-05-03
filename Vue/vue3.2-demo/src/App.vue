@@ -26,10 +26,10 @@
   <!-- <slotDistribution>
     张靓颖上海开唱深V大秀性感，张杰空降现场飙唱《燕归巢》，两位的高音可以说让人听了非常的满足了~
   </slotDistribution> -->
-  <table>
+  <!-- <table>
     <blogPostRow/>
-    </table>
-   <div class="dynimaicBox">
+    </table> -->
+   <!-- <div class="dynimaicBox">
         <button
      v-for="tab in tabs"
      v-bind:key="tab"
@@ -37,11 +37,16 @@
      v-on:click="currentTab = tab"
    >
     {{ tab }}
-  </button>
+  </button> -->
   <!----动态组件不能放到儿子组件内调用----->
-   <component v-bind:is="currentTabComponent" class="tab"></component>
+   <!-- <component v-bind:is="currentTabComponent" class="tab"></component> -->
      <!-- <component :is="currentTabComponent" /> -->
-    </div>
+    <!-- </div> -->
+    <!-----depth components-------->
+    <!-----props传静态值---->
+        <props-component title="My journey with Vue"></props-component>
+        <!---props传动态值------>
+        <props-component :title="songName" :likes="42" :list="posts" :test="person"></props-component>
 </div>
 </template>
 
@@ -62,12 +67,14 @@
 // import blogPost from '@/vueBasic/blogPost.vue'
 // import componentModel from '@/vueBasic/componentModel.vue'
 // import slotDistribution from '@/vueBasic/slotDistribution.vue'
-import dynimaiComponent from '@/vueBasic/dynimaiComponent.vue'
-import TabArchive from '@/vueBasic/tabArchive.vue'
-import TabHome from '@/vueBasic/tabHome.vue'
-import TabPosts from '@/vueBasic/tabPosts.vue'
-import blogPostRow from '@/vueBasic/blogPostRow.vue'
-
+// import dynimaiComponent from '@/vueBasic/dynimaiComponent.vue'
+// import TabArchive from '@/vueBasic/tabArchive.vue'
+// import TabHome from '@/vueBasic/tabHome.vue'
+// import TabPosts from '@/vueBasic/tabPosts.vue'
+// import blogPostRow from '@/vueBasic/blogPostRow.vue'
+// import PropsComponent from './ComponentsInDepth/PropsComponent.vue'
+import PropsComponent from '@/ComponentsInDepth/PropsComponent.vue'
+import {Person}  from '~/utils/index.js'
 
 
 export default {
@@ -89,11 +96,13 @@ export default {
       // blogPost,
       // componentModel,
       // slotDistribution,
-       dynimaiComponent,
-       TabArchive,
-        TabHome,
-        TabPosts,
-        blogPostRow
+    //    dynimaiComponent,
+    //    TabArchive,
+    //     TabHome,
+    //     TabPosts,
+    //     blogPostRow
+    // PropsComponent,
+    PropsComponent
 
   },
   data(){
@@ -118,6 +127,10 @@ export default {
    computed: {
         currentTabComponent(){
             return 'tab-' + this.currentTab.toLowerCase()
+    },
+    person(){
+      var t = new Person('哈哈哈，夜华','20')
+      return t
     }
     }
  
@@ -132,5 +145,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+li{
+  list-style: none;
 }
 </style>

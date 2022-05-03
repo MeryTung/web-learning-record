@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="event-handling" class="demo">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+        <button-counter></button-counter>
+        <!-------自定义组件 <blog-post-row> 会被作为无效的内容提升到外部--------->
+        <!-- <table>
+        <blog-post-row></blog-post-row>
+        </table> -->
+        <!---当它用于原生 HTML 元素时，is 的值必须以 vue: 开头，
+            才可以被解释为 Vue 组件。这是避免和原生自定义元素混淆。----->
+        <table>
+            <tr is="vue:blog-post-row"></tr>
+        </table>
+      </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const HelloApp = {
+            data(){
+                return {
+                    message: '你好，陈思成。'
+                }
+            },
+            methods:{
+                reverseMessage(){
+                    this.message =this.message.split('').reverse().join('')
+                }
+            }
+            
+        }
+        // Vue.createApp(HelloApp).mount('#event-handling')
+        const app = Vue.createApp(HelloApp)
+        app.component('button-counter',{
+            data(){
+                return {
+                    count:0
+                }
+            },
+            template: `
+                <p>
+                <button @click="count++">
+                You clicked me {{ count }} times.
+                </button></p>`
+        })
+        app.component('blog-post-row',{
+            data(){
+                return {
+                    products:[
+                        {proName:'西瓜',sort:'水果',price:20},
+                        {proName:'苹果',sort:'水果',price:20},
+                        {proName:'白菜',sort:'蔬菜',price:3},
+                        {proName:'茄子',sort:'蔬菜',price:4},
+                        {proName:'猪肉',sort:'肉类',price:13},
+                    ]
+                }
+            },
+            template:`  <tr>
+                <td>标题</td>
+                <td>分类</td>
+                <td>价格</td>
+            </tr>
+            <tr v-for="(p,i) in products" :key="i">
+                <td>{{p.proName}}</td>
+                <td>{{p.sort}}</td>
+                <td>{{p.price}}</td>
+            </tr>`
+        })
+      app.mount('#event-handling')
+    </script>
+</body>
+</html>

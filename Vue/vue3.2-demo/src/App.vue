@@ -26,6 +26,9 @@
   <!-- <slotDistribution>
     张靓颖上海开唱深V大秀性感，张杰空降现场飙唱《燕归巢》，两位的高音可以说让人听了非常的满足了~
   </slotDistribution> -->
+  <table>
+    <blogPostRow/>
+    </table>
    <div class="dynimaicBox">
         <button
      v-for="tab in tabs"
@@ -63,6 +66,7 @@ import dynimaiComponent from '@/vueBasic/dynimaiComponent.vue'
 import TabArchive from '@/vueBasic/tabArchive.vue'
 import TabHome from '@/vueBasic/tabHome.vue'
 import TabPosts from '@/vueBasic/tabPosts.vue'
+import blogPostRow from '@/vueBasic/blogPostRow.vue'
 
 
 
@@ -88,7 +92,8 @@ export default {
        dynimaiComponent,
        TabArchive,
         TabHome,
-        TabPosts
+        TabPosts,
+        blogPostRow
 
   },
   data(){

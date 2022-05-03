@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttle</title>
+</head>
+<body>
+    <button id="btn">上车</button>
+    <script>
+        //不管你执行多少次，我都只认第一次。
+       function throttle(fn,interval){
+            let last = 0;
+            return function(){
+                let context = this
+                let now = +new Date()
+                if(now-last>=interval){
+                   last = now
+                   console.log(now)
+                    fn.apply(context,arguments)
+                }
+            }
+       }
+       let better_scroll = throttle(()=> console.log('触发了click'),2000)
+       let btn = document.getElementById('btn')
+       btn.addEventListener('click',better_scroll)
+    </script>
+</body>
+</html>

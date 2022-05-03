@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>throttle-debounce</title>
+</head>
+<body>
+    <button id="btn">上车</button>
+    <script>
+        function strongThrottle(fn,delay) {
+            let timer = null;
+            let last = 0;
+            return function() {
+                let now = +new Date();
+                let context = this
+                if(now-last < delay) {
+                    clearTimeout(timer);
+                    timer = setTimeout(()=>{
+                        last = now
+                        fn.apply(context, arguments);
+                    },delay);
+                }else{
+                    last = now;
+                    fn.apply(context, arguments);
+                }
+            }
+        }
+        let better_scroll = strongThrottle(()=> console.log('触发了click'),2000)
+       let btn = document.getElementById('btn')
+       btn.addEventListener('click',better_scroll)
+    </script>
+</body>
+</html>

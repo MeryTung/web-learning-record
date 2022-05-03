@@ -48,7 +48,10 @@
         <!---props传动态值------>
         <!-- <props-component :title="songName" :likes="42" :list="posts" :test="person"></props-component> -->
         <!-- <props-component prop-title="hello!"></props-component> -->
-        <date-picker data-status="actived" @change="showChange"></date-picker>
+        <!-- <date-picker data-status="actived" @change="showChange"></date-picker> -->
+        <!-- <my-component @my-event="showChange" :title="songName"></my-component> -->
+          <my-component v-model:description.capitalize="myText"></my-component>
+           {{ myText }}
 </div>
 </template>
 
@@ -77,8 +80,9 @@
 // import PropsComponent from './ComponentsInDepth/PropsComponent.vue'
 // import PropsComponent from '@/ComponentsInDepth/PropsComponent.vue'
 // import {Person}  from '~/utils/index.js'
-import DatePicker from '@/ComponentsInDepth/DatePicker.vue'
-
+// import DatePicker from '@/ComponentsInDepth/DatePicker.vue'
+// import MyComponent from './vueBasic/myComponent.vue'
+import myComponent from '@/ComponentsInDepth/myComponent.vue'
 
 export default {
   name: 'App',
@@ -106,12 +110,13 @@ export default {
     //     blogPostRow
     // PropsComponent,
     // PropsComponent,
-    DatePicker
-
+    // DatePicker,
+      myComponent
   },
   data(){
     return {
-      songName:'说走就走',
+ 
+     songName:'说走就走',
       blogTitle:'什么鬼阿',
        posts: [
         { id: 1, title: 'My journey with Vue' },
@@ -120,15 +125,18 @@ export default {
       ],
       postFontSize:1, 
       currentTab:'Home',
-      tabs: ['Home','Posts','Archive']
+      tabs: ['Home','Posts','Archive'],
+      myText:'hello'
     }
   },
   methods: {
     handlerTitle(val){
       this.songName = val
     },
-    showChange(event) {
-      console.log(event.target.value) // 将打印所选选项的值
+    showChange(val) {
+      this.songName = val
+     // console.log('123')
+      //console.log(event.target.value) // 将打印所选选项的值
     }
   },
    computed: {

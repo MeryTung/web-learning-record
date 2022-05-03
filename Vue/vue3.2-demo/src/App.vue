@@ -44,9 +44,10 @@
     <!-- </div> -->
     <!-----depth components-------->
     <!-----props传静态值---->
-        <props-component title="My journey with Vue"></props-component>
+        <!-- <props-component title="My journey with Vue"></props-component> -->
         <!---props传动态值------>
-        <props-component :title="songName" :likes="42" :list="posts" :test="person"></props-component>
+        <!-- <props-component :title="songName" :likes="42" :list="posts" :test="person"></props-component> -->
+        <props-component prop-title="hello!"></props-component>
 </div>
 </template>
 

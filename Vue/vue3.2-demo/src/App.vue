@@ -47,7 +47,8 @@
         <!-- <props-component title="My journey with Vue"></props-component> -->
         <!---props传动态值------>
         <!-- <props-component :title="songName" :likes="42" :list="posts" :test="person"></props-component> -->
-        <props-component prop-title="hello!"></props-component>
+        <!-- <props-component prop-title="hello!"></props-component> -->
+        <date-picker data-status="actived" @change="showChange"></date-picker>
 </div>
 </template>
 
@@ -74,8 +75,9 @@
 // import TabPosts from '@/vueBasic/tabPosts.vue'
 // import blogPostRow from '@/vueBasic/blogPostRow.vue'
 // import PropsComponent from './ComponentsInDepth/PropsComponent.vue'
-import PropsComponent from '@/ComponentsInDepth/PropsComponent.vue'
-import {Person}  from '~/utils/index.js'
+// import PropsComponent from '@/ComponentsInDepth/PropsComponent.vue'
+// import {Person}  from '~/utils/index.js'
+import DatePicker from '@/ComponentsInDepth/DatePicker.vue'
 
 
 export default {
@@ -103,7 +105,8 @@ export default {
     //     TabPosts,
     //     blogPostRow
     // PropsComponent,
-    PropsComponent
+    // PropsComponent,
+    DatePicker
 
   },
   data(){
@@ -123,16 +126,19 @@ export default {
   methods: {
     handlerTitle(val){
       this.songName = val
+    },
+    showChange(event) {
+      console.log(event.target.value) // 将打印所选选项的值
     }
   },
    computed: {
         currentTabComponent(){
             return 'tab-' + this.currentTab.toLowerCase()
     },
-    person(){
-      var t = new Person('哈哈哈，夜华','20')
-      return t
-    }
+    // person(){
+    //   var t = new Person('哈哈哈，夜华','20')
+    //   return t
+    // }
     }
  
 }

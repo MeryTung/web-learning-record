@@ -71,7 +71,7 @@
              </template> -->
            <!-- </todo-button> -->
            <!----具名插槽缩写---->
-           <todo-button>
+           <!-- <todo-button>
               <template #header>
                <h1>Here might be a page title</h1>
                </template>
@@ -81,7 +81,9 @@
              <template #footer>
                <p>Here's some contact info</p>
              </template>
-           </todo-button>
+           </todo-button> -->
+           <!--provide/inject------>
+           <todo-list></todo-list>
 </div>
 </template>
 
@@ -114,8 +116,8 @@
 // import MyComponent from './vueBasic/myComponent.vue'
 // import myComponent from '@/ComponentsInDepth/myComponent.vue'
 // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import TodoButton from '@/slots/TodoButton.vue'
-
+// import TodoButton from '@/slots/TodoButton.vue'
+import TodoList from '@/ProvideInject/TodoList.vue'
 
 export default {
   name: 'App',
@@ -146,7 +148,14 @@ export default {
     // DatePicker,
       // myComponent,
       // FontAwesomeIcon,
-      TodoButton
+      // TodoButton
+      TodoList
+  },
+   provide() {
+     return {
+       user: this.posts.length
+     }
+    
   },
   data(){
     return {

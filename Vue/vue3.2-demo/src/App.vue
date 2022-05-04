@@ -50,8 +50,27 @@
         <!-- <props-component prop-title="hello!"></props-component> -->
         <!-- <date-picker data-status="actived" @change="showChange"></date-picker> -->
         <!-- <my-component @my-event="showChange" :title="songName"></my-component> -->
-          <my-component v-model:description.capitalize="myText"></my-component>
-           {{ myText }}
+          <!-- <my-component v-model:description.capitalize="myText"></my-component>
+           {{ myText }} -->
+           <todo-button>
+            <!-- <font-awesome-icon :icon="['fas','address-book']" /> -->
+            <!-- <font-awesome-icon :icon="['fas', 'phone']" /> -->
+            <!-- <font-awesome-icon :icon="['fas','arrow-up-from-ground-water']" />
+            <font-awesome-icon :icon="['far', 'address-book']" />
+            <font-awesome-icon :icon="['fab', 'apple']" /> -->
+            <template v-slot:default="slotProps">
+               <span class="green" >{{ slotProps.item }}</span>
+            </template>
+             <!-- <template v-slot:header>
+               <h1>Here might be a page title</h1>
+               </template>
+             <template v-slot:default="slotProps">
+               <span>{{slotProps.item}}</span>
+            </template>
+             <template v-slot:footer>
+               <p>Here's some contact info</p>
+             </template> -->
+           </todo-button>
 </div>
 </template>
 
@@ -82,7 +101,10 @@
 // import {Person}  from '~/utils/index.js'
 // import DatePicker from '@/ComponentsInDepth/DatePicker.vue'
 // import MyComponent from './vueBasic/myComponent.vue'
-import myComponent from '@/ComponentsInDepth/myComponent.vue'
+// import myComponent from '@/ComponentsInDepth/myComponent.vue'
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import TodoButton from '@/slots/TodoButton.vue'
+
 
 export default {
   name: 'App',
@@ -111,7 +133,9 @@ export default {
     // PropsComponent,
     // PropsComponent,
     // DatePicker,
-      myComponent
+      // myComponent,
+      // FontAwesomeIcon,
+      TodoButton
   },
   data(){
     return {
@@ -126,7 +150,9 @@ export default {
       postFontSize:1, 
       currentTab:'Home',
       tabs: ['Home','Posts','Archive'],
-      myText:'hello'
+      myText:'hello',
+      // item:'父组件内容想在子组件自定义'
+     
     }
   },
   methods: {

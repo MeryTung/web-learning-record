@@ -52,15 +52,14 @@
         <!-- <my-component @my-event="showChange" :title="songName"></my-component> -->
           <!-- <my-component v-model:description.capitalize="myText"></my-component>
            {{ myText }} -->
-           <todo-button>
+           <!-- <todo-button v-slot:default="{item}"> -->
             <!-- <font-awesome-icon :icon="['fas','address-book']" /> -->
             <!-- <font-awesome-icon :icon="['fas', 'phone']" /> -->
             <!-- <font-awesome-icon :icon="['fas','arrow-up-from-ground-water']" />
             <font-awesome-icon :icon="['far', 'address-book']" />
             <font-awesome-icon :icon="['fab', 'apple']" /> -->
-            <template v-slot:default="slotProps">
-               <span class="green" >{{ slotProps.item }}</span>
-            </template>
+
+               <!-- <span class="green" >{{ item }}</span> -->
              <!-- <template v-slot:header>
                <h1>Here might be a page title</h1>
                </template>
@@ -70,6 +69,18 @@
              <template v-slot:footer>
                <p>Here's some contact info</p>
              </template> -->
+           <!-- </todo-button> -->
+           <!----具名插槽缩写---->
+           <todo-button>
+              <template #header>
+               <h1>Here might be a page title</h1>
+               </template>
+             <template #default="slotProps">
+               <span>{{slotProps.item}}</span>
+            </template>
+             <template #footer>
+               <p>Here's some contact info</p>
+             </template>
            </todo-button>
 </div>
 </template>

@@ -3,15 +3,15 @@
        <!-- <button class="btn">
           Submit
        </button> -->
-       <slot :item="item"></slot>
-       <!-- <header><slot name="header"></slot></header>
+       <!-- <slot :item="item"></slot> -->
+       <header><slot name="header"></slot></header>
        <main>
            <li v-for="(item,i) in items" :key="i">
                <slot :item="item">
            </slot>
            </li>
            </main>
-       <footer><slot name="footer"></slot></footer> -->
+       <footer><slot name="footer"></slot></footer>
    </div>
 </template>
 

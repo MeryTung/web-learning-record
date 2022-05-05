@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 // import App from './App.vue'
-import compB from '@/combination/exposeComponentB.vue'
+import compB from '@/renderFunction/ComponentA.vue'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'

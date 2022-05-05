@@ -1,10 +1,12 @@
 <script>
-import { h } from 'vue'
+import tabHome from '@/renderFunction/tabHome.vue'
+import { h,resolveDynamicComponent  } from 'vue'
 // import ButtonCounter from '@/renderFunction/ButtonCounter.vue'
 export default {
-    // components:{
-    //     ButtonCounter 
-    // },
+    components:{
+    //     ButtonCounter ,
+         tabHome
+    },
 //      props: {
 //         level: {
 //         type: Number,
@@ -17,7 +19,7 @@ export default {
     data(){
         return{
             title:'Hello Vue.js',
-            
+            currentTab: 'Home',
         }
     },
 //    render(){
@@ -58,9 +60,35 @@ export default {
 //   onClick: submitForm,
 //   key: 'submit-button'
 // }
-     return h('button',
-     {onClick: $event => console.log('clicked', $event.target),innerHTML:'Add'}
-  )
+//      return h('button',
+//      {onClick: $event => console.log('clicked', $event.target),innerHTML:'Add'}
+//   )
+  //事件修饰符
+    // return h('input',{
+    //     onClickCapture: this.doThisInCapturingMode,
+    //     onKeyupOnce: this.doThisOnce,
+    //     onMouseoverOnceCapture: this.doThisOnceInCapturingMode
+    //     })
+   //// `<component :is="name"></component>`
+  const Component = resolveDynamicComponent(this.name)
+  return h(Component)
+
+    },
+    methods:{
+        doThisInCapturingMode(){
+            console.log('doThisInCapturingMode')
+        },
+        doThisOnce(){
+            console.log('doThisOnce')
+        },
+        doThisOnceInCapturingMode(){
+            console.log('doThisOnceInCapturingMode')
+        }
+    },
+    computed:{
+        name(){
+            return 'tab-' + this.currentTab.toLowerCase()
+        }
     },
    mounted(){
     //    console.log('$el',this.$el)

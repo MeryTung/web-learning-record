@@ -83,7 +83,12 @@
              </template>
            </todo-button> -->
            <!--provide/inject------>
-           <todo-list></todo-list>
+           <!-- <todo-list></todo-list> -->
+           <!-- <sigle-index :title="songName"></sigle-index> -->
+           <!-- <my-component :posts="posts" ></my-component> -->
+           <render-component ref="compa" >
+             <button @click="increment">Add</button>
+           </render-component>
 </div>
 </template>
 
@@ -117,7 +122,11 @@
 // import myComponent from '@/ComponentsInDepth/myComponent.vue'
 // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // import TodoButton from '@/slots/TodoButton.vue'
-import TodoList from '@/ProvideInject/TodoList.vue'
+// import TodoList from '@/ProvideInject/TodoList.vue'
+
+// import MyComponent from '@/combination/myComponent.vue'
+import RenderComponent from '@/combination/renderComponent.vue'
+import { ref } from 'vue'
 
 export default {
   name: 'App',
@@ -149,7 +158,10 @@ export default {
       // myComponent,
       // FontAwesomeIcon,
       // TodoButton
-      TodoList
+      // TodoList
+      // sigleIndex
+    // MyComponent
+    RenderComponent
   },
    provide() {
      return {
@@ -159,7 +171,6 @@ export default {
   },
   data(){
     return {
- 
      songName:'说走就走',
       blogTitle:'什么鬼阿',
        posts: [
@@ -167,6 +178,10 @@ export default {
         { id: 2, title: 'Blogging with Vue' },
         { id: 3, title: 'Why Vue is so fun' }
       ],
+      compa:ref(null),
+      product:{
+        proName:'西瓜',price:7
+      },
       postFontSize:1, 
       currentTab:'Home',
       tabs: ['Home','Posts','Archive'],

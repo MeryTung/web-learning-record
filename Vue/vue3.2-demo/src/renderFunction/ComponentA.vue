@@ -1,10 +1,10 @@
 <script>
 import { h } from 'vue'
-import ButtonCounter from '@/renderFunction/ButtonCounter.vue'
+// import ButtonCounter from '@/renderFunction/ButtonCounter.vue'
 export default {
-    components:{
-        ButtonCounter 
-    },
+    // components:{
+    //     ButtonCounter 
+    // },
 //      props: {
 //         level: {
 //         type: Number,
@@ -44,10 +44,23 @@ export default {
     // }else{
     //     return h('p', 'No items found.')
     // }
-    return h(ButtonCounter, {
-       modelValue: this.title,
-       'onUpdate:modelValue': value => this.$emit('update:modelValue', this.title =  value)
-  })
+    //v-model
+//     return h(ButtonCounter, {
+//        modelValue: this.title,
+//        'onUpdate:modelValue': value => this.$emit('update:modelValue', this.title =  value )
+//   })
+//v-on
+// {
+//   class: ['button', { 'is-outlined': isOutlined }],
+//   style: [{ color: '#34495E' }, { backgroundColor: buttonColor }],
+//   id: 'submit',
+//   innerHTML: '',
+//   onClick: submitForm,
+//   key: 'submit-button'
+// }
+     return h('button',
+     {onClick: $event => console.log('clicked', $event.target),innerHTML:'Add'}
+  )
     },
    mounted(){
     //    console.log('$el',this.$el)

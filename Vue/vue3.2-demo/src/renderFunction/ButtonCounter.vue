@@ -1,15 +1,15 @@
 <template>
-<!-- <div class="form"> -->
+<div class="form">
     
    <input  type="text" 
     :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"/>
-   <!-- <button class="btn" @click="addList">Add</button> -->
-   <!-- {{modelValue}} -->
-   <!-- <ul>
+   <button class="btn" @click="addList">Add</button>
+   {{modelValue}}
+   <ul>
        <li v-for="(todo,index) in todoList" :key="index">{{todo}}</li>
-       </ul> -->
-<!-- </div> -->
+       </ul>
+</div>
   
 </template>
 

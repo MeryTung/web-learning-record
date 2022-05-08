@@ -1,13 +1,13 @@
 <template>
-  <ComponentA ref="compa" />
+  <combinationA ref="compa" />
 </template>
 
 <script>
 import { ref ,onMounted } from 'vue'
-import ComponentA from '@/combination/componentA.vue'
+import combinationA from '@/combination/combinationA.vue'
 export default {
     components:{
-        ComponentA
+        combinationA
     },
  setup() {
     const compa  = ref(null)

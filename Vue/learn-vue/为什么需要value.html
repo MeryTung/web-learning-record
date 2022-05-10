@@ -1,0 +1,15 @@
+function computed(getter){
+    let value = 2;
+    setTimeout(()=>{
+        value = getter()
+    },2000)
+    return value
+}
+
+function computed2(getter){
+    let ref = {value:2};
+    setTimeout(()=>{
+        ref.value = getter()
+    },2000)
+    return ref
+}
